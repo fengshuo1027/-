@@ -119,10 +119,12 @@ function AnimatedSection({
   children,
   className,
   id,
+  viewportAmount = 0.22,
 }: {
   children: ReactNode;
   className?: string;
   id?: string;
+  viewportAmount?: number;
 }) {
   return (
     <motion.section
@@ -131,7 +133,7 @@ function AnimatedSection({
       variants={sectionVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.22 }}
+      viewport={{ once: true, amount: viewportAmount }}
     >
       {children}
     </motion.section>
@@ -272,7 +274,11 @@ function ProfileHeroVisual() {
 
 function Projects() {
   return (
-    <AnimatedSection id="projects" className="scroll-mt-32 pb-28 pt-36">
+    <AnimatedSection
+      id="projects"
+      className="scroll-mt-28 pb-24 pt-28 sm:scroll-mt-32 sm:pb-28 sm:pt-36"
+      viewportAmount={0.04}
+    >
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <div className="max-w-3xl">
           <p className="text-sm font-medium uppercase text-[#7CF7E8]">
@@ -286,27 +292,27 @@ function Projects() {
           </p>
         </div>
         <motion.div
-          className="mt-14 grid grid-cols-1 gap-7 md:grid-cols-2 xl:grid-cols-3"
+          className="mt-10 grid w-full grid-cols-1 gap-6 sm:mt-14 sm:gap-7 md:grid-cols-2 xl:grid-cols-3"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.18 }}
+          viewport={{ once: true, amount: 0.04 }}
         >
           {projects.map((project) => (
             <motion.div
               key={project.title}
               variants={fadeUpItem}
-              className="group"
+              className="group w-full min-w-0"
             >
               <Link
                 href={`/projects/${project.slug}`}
-                className="flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-[rgba(255,255,255,0.12)] bg-white/[0.055] p-4 backdrop-blur-[12px] transition duration-300 hover:-translate-y-1 hover:border-[rgba(255,255,255,0.22)] hover:bg-white/[0.065] hover:shadow-2xl hover:shadow-[#7CF7E8]/[0.07]"
+                className="flex h-auto w-full flex-col overflow-hidden rounded-[1.5rem] border border-[rgba(255,255,255,0.12)] bg-white/[0.055] p-4 backdrop-blur-[12px] transition duration-300 hover:-translate-y-1 hover:border-[rgba(255,255,255,0.22)] hover:bg-white/[0.065] hover:shadow-2xl hover:shadow-[#7CF7E8]/[0.07] md:h-full"
               >
                 <div className="overflow-hidden rounded-[1.15rem] border border-[rgba(255,255,255,0.12)]">
                   <ImageFallback
                     alt={project.title}
                     label={project.title}
-                    className="h-44 transition duration-500 group-hover:scale-[1.03]"
+                    className="h-40 w-full transition duration-500 group-hover:scale-[1.03] sm:h-44"
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-2 pt-5">

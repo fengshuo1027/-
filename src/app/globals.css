@@ -29,17 +29,20 @@ body {
 
 @keyframes tech-marquee {
   from {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 
   to {
-    transform: translateX(calc(-50% - 0.5rem));
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
 .tech-marquee-track {
-  animation: tech-marquee 34s linear infinite;
+  animation: tech-marquee 24s linear infinite;
+  display: flex;
+  min-width: max-content;
   width: max-content;
+  will-change: transform;
 }
 
 .tech-marquee:hover .tech-marquee-track {

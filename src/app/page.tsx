@@ -25,6 +25,7 @@ const navItems = [
   { id: "nav-home", label: "首页", href: "#home" },
   { id: "nav-about", label: "关于我", href: "#about" },
   { id: "nav-projects", label: "项目经历", href: "#projects" },
+  { id: "nav-portfolio", label: "作品集", href: "#portfolio" },
   { id: "nav-contact", label: "联系方式", href: "#contact" },
 ];
 
@@ -85,6 +86,39 @@ const abilityTags = [
   "Claude Code",
   "ComfyUI",
   "Figma / PS / AI",
+];
+
+const portfolioItems = [
+  {
+    id: 1,
+    title: "个人网站设计作品集",
+    description:
+      "围绕个人品牌展示、视觉风格和项目展示进行设计，呈现从首页视觉到项目内容组织的完整思路。",
+    category: "Web 设计",
+    tags: ["Web Design", "Portfolio"],
+    cover: "/portfolio/covers/personal-website-cover.jpg",
+    file: "/portfolio/files/personal-website.pdf",
+  },
+  {
+    id: 2,
+    title: "AI 工具产品设计案例",
+    description:
+      "基于 AI 辅助内容生产流程进行插件产品设计探索，包含产品流程、功能结构和界面设计。",
+    category: "AI 工具",
+    tags: ["AI Tools", "Product Design"],
+    cover: "/portfolio/covers/ai-tool-cover.jpg",
+    file: "/portfolio/files/ai-tool.pdf",
+  },
+  {
+    id: 3,
+    title: "App 适配与 UI 走查案例",
+    description:
+      "围绕多端适配、视觉一致性和 UI 走查规则进行整理，展示设计规范落地过程。",
+    category: "UI 设计",
+    tags: ["UI Design", "App Design"],
+    cover: "/portfolio/covers/app-ui-cover.jpg",
+    file: "/portfolio/files/app-ui-case.pdf",
+  },
 ];
 
 const sectionVariants: Variants = {
@@ -288,7 +322,7 @@ function Projects() {
             项目经历
           </h2>
           <p className="mt-6 text-lg leading-8 text-zinc-300">
-            这些项目来自实习与个人探索，覆盖教育学习产品、家装业务体验、运营视觉、AI Coding 工具和 AIGC 工作流。我更关注用户路径、信息层级和设计落地。
+            这些项目来自工作与个人探索，覆盖教育学习产品、家装业务体验、运营视觉、AI Coding 工具和 AIGC 工作流。我更关注用户路径、信息层级和设计落地。
           </p>
         </div>
         <motion.div
@@ -341,6 +375,85 @@ function Projects() {
                 </div>
               </Link>
             </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </AnimatedSection>
+  );
+}
+
+function Portfolio() {
+  return (
+    <AnimatedSection id="portfolio" className="scroll-mt-32 px-5 py-28 sm:px-8">
+      <div className="mx-auto max-w-6xl">
+        <div className="max-w-3xl">
+          <p className="text-sm font-medium uppercase text-[#D8FF72]">
+            Portfolio
+          </p>
+          <h2 className="mt-4 text-4xl font-semibold text-white sm:text-5xl">
+            作品集 Portfolio
+          </h2>
+          <p className="mt-6 text-lg leading-8 text-zinc-300">
+            展示我的设计项目、产品思考、视觉方案与完整案例沉淀。
+          </p>
+        </div>
+
+        <motion.div
+          className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.08 }}
+        >
+          {portfolioItems.map((item) => (
+            <motion.article
+              key={item.id}
+              variants={fadeUpItem}
+              className="group flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-[rgba(255,255,255,0.12)] bg-white/[0.06] p-4 shadow-2xl shadow-black/10 backdrop-blur-[12px] transition duration-300 hover:-translate-y-1 hover:border-[rgba(255,255,255,0.22)] hover:bg-white/[0.075] hover:shadow-[#7CF7E8]/[0.07]"
+            >
+              <div className="overflow-hidden rounded-[1.15rem] border border-[rgba(255,255,255,0.12)]">
+                <ImageFallback
+                  src={item.cover}
+                  alt={item.title}
+                  label={item.title}
+                  note={item.category}
+                  className="h-48 transition duration-500 group-hover:scale-[1.03]"
+                  imageClassName="transition duration-500 group-hover:scale-[1.05]"
+                />
+              </div>
+
+              <div className="flex flex-1 flex-col p-2 pt-5">
+                <span className="inline-flex w-fit rounded-full border border-[rgba(216,255,114,0.22)] bg-[#D8FF72]/[0.08] px-3 py-1 text-xs font-semibold text-[#D8FF72]">
+                  {item.category}
+                </span>
+                <h3 className="mt-5 text-xl font-semibold text-white">
+                  {item.title}
+                </h3>
+                <p className="mt-4 leading-7 text-zinc-400 transition group-hover:text-zinc-300">
+                  {item.description}
+                </p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {item.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-[rgba(255,255,255,0.12)] bg-white/[0.035] px-3 py-1 text-xs text-zinc-400"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <div className="mt-7 flex flex-wrap gap-3">
+                  <a
+                    href={item.file}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex h-10 items-center justify-center rounded-full bg-[linear-gradient(135deg,#D8FF72,#7CF7E8)] px-5 text-sm font-semibold text-[#050505] transition duration-300 hover:scale-[1.02]"
+                  >
+                    查看作品
+                  </a>
+                </div>
+              </div>
+            </motion.article>
           ))}
         </motion.div>
       </div>
@@ -526,6 +639,8 @@ export default function Home() {
         <TechStackMarquee />
 
         <Projects />
+
+        <Portfolio />
 
         <Insights />
 

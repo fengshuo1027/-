@@ -293,17 +293,17 @@ function Projects() {
             这些项目来自工作与个人探索，覆盖教育学习产品、家装业务体验、运营视觉、AI Coding 工具和 AIGC 工作流。我更关注用户路径、信息层级和设计落地。
           </p>
         </div>
-        <motion.div
+        <div
           className="mt-10 grid w-full grid-cols-1 gap-6 sm:mt-14 sm:gap-7 md:grid-cols-2 xl:grid-cols-3"
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.04 }}
         >
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <motion.article
-              key={project.title}
+              key={project.slug}
               variants={fadeUpItem}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.12 }}
+              transition={{ delay: Math.min(index * 0.04, 0.18) }}
               className="group flex h-auto w-full min-w-0 flex-col overflow-hidden rounded-[1.5rem] border border-[rgba(255,255,255,0.12)] bg-white/[0.055] p-4 backdrop-blur-[12px] transition duration-300 hover:-translate-y-1 hover:border-[rgba(255,255,255,0.22)] hover:bg-white/[0.065] hover:shadow-2xl hover:shadow-[#7CF7E8]/[0.07] md:h-full"
             >
               <div className="aspect-[16/9] w-full overflow-hidden rounded-[1.5rem] border border-[rgba(255,255,255,0.12)] bg-white/[0.035]">
@@ -346,7 +346,7 @@ function Projects() {
               </div>
             </motion.article>
           ))}
-        </motion.div>
+        </div>
       </div>
     </AnimatedSection>
   );

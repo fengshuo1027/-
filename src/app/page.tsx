@@ -301,48 +301,50 @@ function Projects() {
           viewport={{ once: true, amount: 0.04 }}
         >
           {projects.map((project) => (
-            <motion.div
+            <motion.article
               key={project.title}
               variants={fadeUpItem}
-              className="group w-full min-w-0"
+              className="group flex h-auto w-full min-w-0 flex-col overflow-hidden rounded-[1.5rem] border border-[rgba(255,255,255,0.12)] bg-white/[0.055] p-4 backdrop-blur-[12px] transition duration-300 hover:-translate-y-1 hover:border-[rgba(255,255,255,0.22)] hover:bg-white/[0.065] hover:shadow-2xl hover:shadow-[#7CF7E8]/[0.07] md:h-full"
             >
-              <Link
-                href={`/projects/${project.slug}`}
-                className="flex h-auto w-full flex-col overflow-hidden rounded-[1.5rem] border border-[rgba(255,255,255,0.12)] bg-white/[0.055] p-4 backdrop-blur-[12px] transition duration-300 hover:-translate-y-1 hover:border-[rgba(255,255,255,0.22)] hover:bg-white/[0.065] hover:shadow-2xl hover:shadow-[#7CF7E8]/[0.07] md:h-full"
-              >
-                <div className="overflow-hidden rounded-[1.15rem] border border-[rgba(255,255,255,0.12)]">
-                  <ImageFallback
-                    alt={project.title}
-                    label={project.title}
-                    className="h-40 w-full transition duration-500 group-hover:scale-[1.03] sm:h-44"
-                  />
+              <div className="aspect-[16/9] w-full overflow-hidden rounded-[1.5rem] border border-[rgba(255,255,255,0.12)] bg-white/[0.035]">
+                <ImageFallback
+                  src={project.image}
+                  alt={project.title}
+                  label={project.title}
+                  note="项目图片待补充"
+                  className="h-full w-full transition duration-500 group-hover:scale-[1.03]"
+                  imageClassName="block transition duration-500 group-hover:scale-[1.03]"
+                  objectFit="cover"
+                />
+              </div>
+              <div className="flex flex-1 flex-col p-2 pt-5">
+                <span className="inline-flex w-fit rounded-full border border-[rgba(255,255,255,0.14)] bg-[#7CF7E8]/[0.07] px-3 py-1 text-xs font-semibold text-[#9AF3EA]">
+                  {project.badge}
+                </span>
+                <h3 className="mt-5 text-xl font-semibold text-white">
+                  {project.title}
+                </h3>
+                <p className="mt-4 leading-7 text-zinc-400 transition group-hover:text-zinc-300">
+                  {project.description}
+                </p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-[rgba(255,255,255,0.12)] bg-white/[0.035] px-3 py-1 text-xs text-zinc-400"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
-                <div className="flex flex-1 flex-col p-2 pt-5">
-                  <span className="inline-flex w-fit rounded-full border border-[rgba(255,255,255,0.14)] bg-[#7CF7E8]/[0.07] px-3 py-1 text-xs font-semibold text-[#9AF3EA]">
-                    {project.badge}
-                  </span>
-                  <h3 className="mt-5 text-xl font-semibold text-white">
-                    {project.title}
-                  </h3>
-                  <p className="mt-4 leading-7 text-zinc-400 transition group-hover:text-zinc-300">
-                    {project.description}
-                  </p>
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full border border-[rgba(255,255,255,0.12)] bg-white/[0.035] px-3 py-1 text-xs text-zinc-400"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <span className="mt-6 inline-flex text-sm font-semibold text-[#9AF3EA] transition duration-300 group-hover:translate-x-1">
-                    查看案例 →
-                  </span>
-                </div>
-              </Link>
-            </motion.div>
+                <Link
+                  href={`/projects/${project.slug}`}
+                  className="mt-6 inline-flex w-fit text-sm font-semibold text-[#9AF3EA] transition duration-300 hover:translate-x-1 hover:text-[#D8FF72]"
+                >
+                  查看案例 →
+                </Link>
+              </div>
+            </motion.article>
           ))}
         </motion.div>
       </div>

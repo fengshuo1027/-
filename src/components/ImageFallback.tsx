@@ -9,6 +9,7 @@ type ImageFallbackProps = {
   label?: string;
   note?: string;
   imageClassName?: string;
+  objectFit?: "cover" | "contain";
 };
 
 export function ImageFallback({
@@ -18,6 +19,7 @@ export function ImageFallback({
   label,
   note = "作品图待补充",
   imageClassName = "",
+  objectFit = "cover",
 }: ImageFallbackProps) {
   const [hasError, setHasError] = useState(!src);
 
@@ -28,7 +30,7 @@ export function ImageFallback({
         <img
           src={src}
           alt={alt}
-          className={`h-full w-full object-cover ${imageClassName}`}
+          className={`h-full w-full ${objectFit === "contain" ? "object-contain" : "object-cover"} ${imageClassName}`}
           onError={() => setHasError(true)}
         />
       </div>

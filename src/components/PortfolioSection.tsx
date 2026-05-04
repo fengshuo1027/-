@@ -12,14 +12,6 @@ const portfolioItems = [
     cover: "/images/project-01-cover.png",
     file: "/portfolio/portfolio-ui.pdf",
   },
-  {
-    id: 2,
-    title: "产品设计作品集",
-    description:
-      "围绕产品思考、功能结构和用户路径展开，展示 AI 工具与产品体验设计的案例沉淀。",
-    cover: "/images/project-02-cover.png",
-    file: "/portfolio/portfolio-product.pdf",
-  },
 ];
 
 const staggerContainer: Variants = {

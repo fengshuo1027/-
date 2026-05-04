@@ -3,6 +3,7 @@
 import { motion, type Variants } from "framer-motion";
 import Link from "next/link";
 import { ImageFallback } from "@/components/ImageFallback";
+import { ProjectSectionsEditor } from "@/components/ProjectSectionsEditor";
 import type { Project } from "@/data/projects";
 
 const fadeUp: Variants = {
@@ -90,9 +91,13 @@ export function ProjectDetail({ project, previous, next }: ProjectDetailProps) {
           <motion.div variants={fadeUp}>
             <div className="overflow-hidden rounded-[2rem] border border-[rgba(255,255,255,0.12)] bg-white/[0.055] p-3 backdrop-blur-[12px]">
               <ImageFallback
+                src={project.image}
                 alt={project.title}
                 label={project.title}
+                note="项目封面待补充"
                 className="h-[24rem] rounded-[1.55rem]"
+                imageClassName="transition duration-500 hover:scale-[1.02]"
+                objectFit="cover"
               />
             </div>
           </motion.div>
@@ -192,49 +197,7 @@ export function ProjectDetail({ project, previous, next }: ProjectDetailProps) {
           </div>
         </motion.section>
 
-        <motion.section
-          className="py-24"
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.16 }}
-        >
-          <div className="max-w-3xl">
-            <p className="text-sm font-medium uppercase text-[#9AF3EA]">
-              Gallery
-            </p>
-            <h2 className="mt-4 text-4xl font-semibold text-white">作品展示</h2>
-          </div>
-          <motion.div variants={fadeUp} className="mt-10">
-            <ImageFallback
-              alt={`${project.title} 大图`}
-              label={project.title}
-              className="h-[30rem] rounded-[2rem] border border-[rgba(255,255,255,0.12)]"
-            />
-          </motion.div>
-          <div className="mt-6 grid gap-6 md:grid-cols-3">
-            {[1, 2, 3].map((item) => (
-              <motion.div key={item} variants={fadeUp}>
-                <ImageFallback
-                  alt={`${project.title} 作品图 ${item}`}
-                  label={project.title}
-                  className="h-64 rounded-[1.5rem] border border-[rgba(255,255,255,0.12)]"
-                />
-              </motion.div>
-            ))}
-          </div>
-          <div className="mt-6 grid gap-6 md:grid-cols-2">
-            {[1, 2].map((item) => (
-              <motion.div key={item} variants={fadeUp}>
-                <ImageFallback
-                  alt={`${project.title} 过程图 ${item}`}
-                  label={project.title}
-                  className="h-72 rounded-[1.5rem] border border-[rgba(255,255,255,0.12)]"
-                />
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
+        <ProjectSectionsEditor initialSections={project.sections} />
 
         <section className="grid gap-8 pb-20 lg:grid-cols-[1fr_1fr]">
           <motion.div

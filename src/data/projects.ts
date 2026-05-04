@@ -4,6 +4,9 @@ export type Project = {
   subtitle: string;
   badge: string;
   description: string;
+  image: string;
+  gallery: string[];
+  sections: ProjectSection[];
   tags: string[];
   meta: {
     type: string;
@@ -20,6 +23,28 @@ export type Project = {
   summary: string;
 };
 
+export type ProjectSectionItem = {
+  title: string;
+  image: string;
+  fit?: "cover" | "contain";
+  layout?: "app" | "default";
+};
+
+export type ProjectSectionImage = {
+  title: string;
+  src: string;
+  fit?: "cover" | "contain";
+  layout?: "app" | "default";
+};
+
+export type ProjectSection = {
+  key?: string;
+  title: string;
+  description?: string;
+  items?: ProjectSectionItem[];
+  images?: ProjectSectionImage[];
+};
+
 export const projects: Project[] = [
   {
     slug: "education-product",
@@ -28,6 +53,47 @@ export const projects: Project[] = [
     badge: "K12 / UIUX / 学习路径",
     description:
       "围绕 K12 学习场景，参与关卡、打卡、Notebook、挑战游戏与 iPad 适配。聚焦信息层级、组件状态和走查验收，让学习路径与操作反馈更清晰。",
+    image: "/images/projects/project-01.jpg",
+    gallery: [
+      "/images/projects/detail/project-01-01.jpg",
+      "/images/projects/detail/project-01-02.jpg",
+      "/images/projects/detail/project-01-03.jpg",
+    ],
+    sections: [
+      {
+        title: "界面展示",
+        items: [
+          {
+            title: "首页界面",
+            image: "/images/projects/教育学习产品体验设计/首页界面.jpg",
+            layout: "app",
+          },
+          {
+            title: "关卡入口",
+            image: "/images/projects/教育学习产品体验设计/学习路径.jpg",
+            layout: "app",
+          },
+          {
+            title: "签到打卡",
+            image: "/images/projects/教育学习产品体验设计/签到打卡.jpg",
+            layout: "app",
+          },
+          {
+            title: "Notebook 记录",
+            image: "/images/projects/教育学习产品体验设计/Notebook 记录.jpg",
+            layout: "app",
+          },
+          {
+            title: "签到路径总览",
+            image: "/images/projects/教育学习产品体验设计/学习路径总览.jpg",
+          },
+          {
+            title: "项目流程展示",
+            image: "/images/projects/教育学习产品体验设计/项目流程展示.jpg",
+          },
+        ],
+      },
+    ],
     tags: ["Learning Path", "Design QA", "iPad UI"],
     meta: {
       type: "教育产品 / 移动端 / Pad 端",
@@ -70,6 +136,49 @@ export const projects: Project[] = [
     badge: "Notebook / Lesson / Journal",
     description:
       "以 Lesson / Journal 为核心搭建学习记录页面。通过分类筛选、卡片结构和 Key Concept 反馈，帮助用户更快回顾内容与表现结果。",
+    image: "/images/projects/project-02.jpg",
+    gallery: [
+      "/images/projects/detail/project-02-01.jpg",
+      "/images/projects/detail/project-02-02.jpg",
+      "/images/projects/detail/project-02-03.jpg",
+    ],
+    sections: [
+      {
+        key: "app",
+        title: "界面展示",
+        items: [
+          {
+            title: "小屋列表",
+            image: "/images/projects/Notebook 学习记录空间/记录列表.jpg",
+            layout: "app",
+          },
+          {
+            title: "内容详情",
+            image: "/images/projects/Notebook 学习记录空间/内容详情.jpg",
+            layout: "app",
+          },
+          {
+            title: "分类筛选",
+            image: "/images/projects/Notebook 学习记录空间/分类筛选.jpg",
+            layout: "app",
+          },
+          {
+            title: "Key Concept",
+            image: "/images/projects/Notebook 学习记录空间/Key Concept.png",
+            fit: "cover",
+            layout: "app",
+          },
+          {
+            title: "学习记录总览",
+            image: "/images/projects/Notebook 学习记录空间/学习记录总览.jpg",
+          },
+          {
+            title: "内容详情展示",
+            image: "/images/projects/Notebook 学习记录空间/内容详情展示.jpg",
+          },
+        ],
+      },
+    ],
     tags: ["Content System", "Key Concept", "Journal"],
     meta: {
       type: "学习记录 / 内容沉淀",
@@ -108,6 +217,44 @@ export const projects: Project[] = [
     badge: "Game UI / 互动流程 / 反馈机制",
     description:
       "设计“猜物品”挑战游戏流程，覆盖线索提示、答案猜测、回合切换和结果反馈。重点强化游戏节奏、即时反馈和学习参与感。",
+    image: "/images/projects/project-03.jpg",
+    gallery: [
+      "/images/projects/detail/project-03-01.jpg",
+      "/images/projects/detail/project-03-02.jpg",
+      "/images/projects/detail/project-03-03.jpg",
+    ],
+    sections: [
+      {
+        key: "app",
+        title: "界面展示",
+        items: [
+          {
+            title: "回答界面",
+            image: "/images/projects/Mystery Box Challenge/挑战入口.jpg",
+          },
+          {
+            title: "反馈状态",
+            image: "/images/projects/Mystery Box Challenge/反馈状态.jpg",
+          },
+          {
+            title: "答案猜测",
+            image: "/images/projects/Mystery Box Challenge/答案猜测.jpg",
+          },
+          {
+            title: "玩家描述",
+            image: "/images/projects/Mystery Box Challenge/玩家描述.jpg",
+          },
+          {
+            title: "关卡开始",
+            image: "/images/projects/Mystery Box Challenge/结果总结.jpg",
+          },
+          {
+            title: "奖励反馈",
+            image: "/images/projects/Mystery Box Challenge/奖励反馈.jpg",
+          },
+        ],
+      },
+    ],
     tags: ["Game UI", "Feedback", "Challenge"],
     meta: {
       type: "Game UI / 学习挑战",
@@ -146,6 +293,56 @@ export const projects: Project[] = [
     badge: "iPad / 适配 / 验收规范",
     description:
       "参与 App 到 iPad 端的界面适配，覆盖注册、登录、设置、我的、首页等页面。重点走查字号、间距、组件状态、弹窗、表单和键盘适配。",
+    image: "/images/projects/project-04.jpg",
+    gallery: [
+      "/images/projects/detail/project-04-01.jpg",
+      "/images/projects/detail/project-04-02.jpg",
+      "/images/projects/detail/project-04-03.jpg",
+    ],
+    sections: [
+      {
+        key: "app",
+        title: "界面展示",
+        items: [
+          {
+            title: "移动端表单",
+            image: "/images/projects/iPad 端适配与 UI 走查/移动端首页.jpg",
+            layout: "app",
+          },
+          {
+            title: "移动端登录",
+            image: "/images/projects/iPad 端适配与 UI 走查/移动端登录.jpg",
+            layout: "app",
+          },
+          {
+            title: "移动端设置",
+            image: "/images/projects/iPad 端适配与 UI 走查/移动端设置.jpg",
+            layout: "app",
+          },
+          {
+            title: "移动端课程详情页",
+            image: "/images/projects/iPad 端适配与 UI 走查/移动端表单.jpg",
+            layout: "app",
+          },
+          {
+            title: "Pad 课程详情页",
+            image: "/images/projects/iPad 端适配与 UI 走查/Pad-课程详情页 .jpg",
+          },
+          {
+            title: "iPad 登录",
+            image: "/images/projects/iPad 端适配与 UI 走查/iPad 登录.jpg",
+          },
+          {
+            title: "iPad 设置",
+            image: "/images/projects/iPad 端适配与 UI 走查/iPad 设置.jpg",
+          },
+          {
+            title: "iPad 表单",
+            image: "/images/projects/iPad 端适配与 UI 走查/iPad 表单.jpg",
+          },
+        ],
+      },
+    ],
     tags: ["iPad UI", "Responsive", "QA"],
     meta: {
       type: "多端适配 / UI 走查",
@@ -184,6 +381,59 @@ export const projects: Project[] = [
     badge: "家装 App / 转化路径 / 品牌视觉",
     description:
       "参与家装 App 首页、案例详情页、留资路径和运营活动页改版。围绕从浏览灵感到发起咨询的路径，优化信息表达和行动引导。",
+    image: "/images/projects/project-05.jpg",
+    gallery: [
+      "/images/projects/detail/project-05-01.jpg",
+      "/images/projects/detail/project-05-02.jpg",
+      "/images/projects/detail/project-05-03.jpg",
+    ],
+    sections: [
+      {
+        title: "界面展示",
+        items: [
+          {
+            title: "首页改版",
+            image: "/images/projects/被窝整装业务体验改版/首页改版.jpg",
+            layout: "app",
+          },
+          {
+            title: "留资路径",
+            image: "/images/projects/被窝整装业务体验改版/留资路径.jpg",
+            layout: "app",
+          },
+          {
+            title: "弹窗报价",
+            image: "/images/projects/被窝整装业务体验改版/品牌视觉.jpg",
+            layout: "app",
+          },
+          {
+            title: "运营活动",
+            image: "/images/projects/被窝整装业务体验改版/品牌组件.jpg",
+            layout: "app",
+          },
+          {
+            title: "我的界面",
+            image: "/images/projects/被窝整装业务体验改版/投放素材.jpg",
+            layout: "app",
+          },
+          {
+            title: "报价详情",
+            image: "/images/projects/被窝整装业务体验改版/运营活动.jpg",
+            layout: "app",
+          },
+          {
+            title: "春节 H5",
+            image: "/images/projects/被窝整装业务体验改版/春节 H5.jpg",
+            layout: "app",
+          },
+          {
+            title: "案例详情",
+            image: "/images/projects/被窝整装业务体验改版/案例详情.jpg",
+            layout: "app",
+          },
+        ],
+      },
+    ],
     tags: ["App Redesign", "Brand DNA", "Operation"],
     meta: {
       type: "家装业务 / App 改版 / 运营视觉",
@@ -222,6 +472,44 @@ export const projects: Project[] = [
     badge: "AI Coding / Claude Code / 内容生产",
     description:
       "参与海外视频采集与内容创作插件设计，梳理链接输入、内容抓取、信息总结和脚本生成流程。用 Claude Code 辅助原型与验证。",
+    image: "/images/projects/project-06.jpg",
+    gallery: [
+      "/images/projects/detail/project-06-01.jpg",
+      "/images/projects/detail/project-06-02.jpg",
+      "/images/projects/detail/project-06-03.jpg",
+    ],
+    sections: [
+      {
+        key: "app",
+        title: "界面展示",
+        items: [
+          {
+            title: "插件应用",
+            image: "/images/projects/AI Coding 内容创作插件/插件入口.jpg",
+          },
+          {
+            title: "生成界面",
+            image: "/images/projects/AI Coding 内容创作插件/生成流程.jpg",
+          },
+          {
+            title: "结果导出",
+            image: "/images/projects/AI Coding 内容创作插件/内容抓取.jpg",
+          },
+          {
+            title: "信息总结",
+            image: "/images/projects/AI Coding 内容创作插件/信息总结.jpg",
+          },
+          {
+            title: "脚本生成",
+            image: "/images/projects/AI Coding 内容创作插件/脚本生成.jpg",
+          },
+          {
+            title: "插件需求",
+            image: "/images/projects/AI Coding 内容创作插件/结果导出.jpg",
+          },
+        ],
+      },
+    ],
     tags: ["AI Workflow", "Prototype", "Content"],
     meta: {
       type: "AI 工具 / 内容生产 / 插件原型",

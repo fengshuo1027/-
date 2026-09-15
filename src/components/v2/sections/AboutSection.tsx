@@ -7,8 +7,8 @@ export function AboutSection() {
     <V2Section
       id="about"
       index="07"
-      eyebrow="About"
-      title="About"
+      eyebrow="关于我"
+      title="关于我"
       description="关于我区块占位。后续接入个人自述、能力标签与工作经历。"
     >
       <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">

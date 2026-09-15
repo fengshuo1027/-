@@ -25,43 +25,43 @@ export type WorkItem = {
 const workItems: WorkItem[] = [
   {
     id: "01",
-    title: "AI Image Evaluation",
-    type: "AI / Evaluation System",
+    title: "AI 图像评测",
+    type: "AI / 评测系统",
     year: "2026",
     description:
-      "A system for evaluating AI-generated images against quality and consistency criteria.",
-    role: "Product / Design / Build",
-    category: "Work Project",
+      "用于依据质量与一致性标准评估 AI 生成图像的系统。",
+    role: "产品 / 设计 / 构建",
+    category: "工作项目",
   },
   {
     id: "02",
-    title: "AI Office Evaluation",
-    type: "AI / Document Evaluation",
+    title: "AI 办公产物评测",
+    type: "AI / 文档评测",
     year: "2026",
     description:
-      "Evaluating AI output on office documents, from structure through to content fidelity.",
-    role: "Product / Design / Build",
-    category: "Work Project",
+      "评估 AI 生成的办公文档，从结构到内容还原度进行判断。",
+    role: "产品 / 设计 / 构建",
+    category: "工作项目",
   },
   {
     id: "03",
     title: "ClipNote AI",
-    type: "AI Product / Design / Build",
+    type: "AI 产品 / 设计 / 构建",
     year: "2026",
     description:
-      "An AI-assisted clipping and note-taking product for collecting and reusing ideas.",
-    role: "Product / Design / Build",
-    category: "Product",
+      "一款 AI 辅助剪藏与笔记产品，用于收集并复用灵感。",
+    role: "产品 / 设计 / 构建",
+    category: "产品",
   },
   {
     id: "04",
-    title: "Personal Workbench",
-    type: "Product / AI-assisted Build",
+    title: "个人工作台",
+    type: "产品 / AI 辅助构建",
     year: "2026",
     description:
-      "A personal workspace for organizing tools, workflows and everyday systems.",
-    role: "Product / Design / Build",
-    category: "Personal Project",
+      "用于整理工具、工作流与日常系统的个人工作空间。",
+    role: "产品 / 设计 / 构建",
+    category: "个人项目",
   },
 ];
 
@@ -78,8 +78,8 @@ export function SelectedWorkSection() {
     <V2Section
       id="work"
       index="02"
-      eyebrow="Selected Work"
-      title="Selected Work"
+      eyebrow="精选作品"
+      title="精选作品"
       description="四个项目的占位数据，点击索引即可切换主视觉与项目信息。后续替换为真实项目内容与最终视觉。"
     >
       <SelectedWorkSwitcher items={workItems} />

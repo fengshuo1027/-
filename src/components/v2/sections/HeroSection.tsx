@@ -39,7 +39,7 @@ export function HeroSection() {
               aria-hidden="true"
               className="h-1.5 w-1.5 rounded-full bg-[rgba(125,211,200,0.7)]"
             />
-            Selected Work 2026
+            精选作品 / 2026
           </span>
 
           {/*
@@ -56,14 +56,13 @@ export function HeroSection() {
             className="mt-8 text-[2.5rem] font-medium leading-[0.9] tracking-[-0.02em] text-white sm:text-6xl xl:text-7xl 2xl:text-8xl"
             style={{ fontFamily: "var(--font-display, inherit)" }}
           >
-            <span className="block">AI designer</span>
-            <span className="block">building</span>
-            <span className="block">systems</span>
+            <span className="block">AI 设计师</span>
+            <span className="block">构建产品</span>
+            <span className="block">与系统</span>
           </h1>
 
           <p className="mt-7 max-w-xl text-base leading-7 text-neutral-400 sm:text-lg sm:leading-8">
-            Designing AI products, evaluation systems, and workflows that turn
-            ideas into usable tools.
+            设计 AI 产品、评测系统与工作流，把想法转化为真正可用的产品与工具。
           </p>
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
@@ -72,14 +71,14 @@ export function HeroSection() {
               href="#work"
               className="inline-flex h-11 w-full items-center justify-center rounded-full border border-white/[0.14] bg-[#16181b] px-6 text-sm font-medium text-white transition hover:border-white/[0.22] hover:bg-[#1c1e22] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950 sm:w-auto"
             >
-              View projects
+              查看项目
             </a>
             {/* 次 CTA：无填充、无边框的纯文字按钮 */}
             <a
               href="#about"
               className="inline-flex h-11 w-full items-center justify-center px-2 text-sm font-medium text-neutral-400 transition hover:text-neutral-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950 sm:w-auto"
             >
-              About me
+              关于我
             </a>
           </div>
         </div>

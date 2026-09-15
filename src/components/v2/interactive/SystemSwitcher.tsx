@@ -12,31 +12,31 @@ type SystemEntry = {
 const entries: SystemEntry[] = [
   {
     id: "ai",
-    label: "AI",
+    label: "AI 能力",
     summary: "AI 在设计与内容生产流程中的接入方式。",
     points: ["AI 辅助原型", "视觉探索流程", "内容生产链路"],
   },
   {
     id: "product",
-    label: "Product",
+    label: "产品设计",
     summary: "从业务目标到用户体验路径的产品侧思考。",
     points: ["用户路径梳理", "信息层级设计", "转化与反馈机制"],
   },
   {
     id: "evaluation",
-    label: "Evaluation",
+    label: "评测体系",
     summary: "设计落地后的走查、验收与质量判断标准。",
     points: ["UI 走查清单", "组件状态核对", "多端适配验收"],
   },
   {
     id: "design",
-    label: "Design",
+    label: "视觉与体验设计",
     summary: "界面与视觉表达层面的设计方法与产出。",
     points: ["视觉体系搭建", "界面细节打磨", "品牌与运营视觉"],
   },
   {
     id: "code",
-    label: "Code",
+    label: "开发实现",
     summary: "用工程手段把想法更快变成可验证的原型。",
     points: ["原型快速搭建", "组件化实现", "设计到代码的衔接"],
   },
@@ -56,7 +56,7 @@ export function SystemSwitcher() {
     <div className="grid gap-6 lg:grid-cols-[240px_1fr]">
       <div
         role="tablist"
-        aria-label="Interactive System 入口"
+        aria-label="能力系统入口"
         aria-orientation="vertical"
         className="flex flex-col gap-2"
       >

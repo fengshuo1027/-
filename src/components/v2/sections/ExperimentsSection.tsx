@@ -13,8 +13,8 @@ export function ExperimentsSection() {
     <V2Section
       id="experiments"
       index="06"
-      eyebrow="Experiments"
-      title="Experiments"
+      eyebrow="实验项目"
+      title="实验项目"
       description="个人实验区块占位。后续用于承载设计之外的探索：AIGC 视觉、AI 工作流与工具原型。"
     >
       <div className="grid gap-4 md:grid-cols-3">

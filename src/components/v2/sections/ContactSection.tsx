@@ -14,14 +14,14 @@ export function ContactSection() {
     <V2Section
       id="contact"
       index="08"
-      eyebrow="Contact"
-      title="Contact"
-      description="联系方式区块占位。后续接入联系渠道、结尾 CTA 与页脚信息。"
+      eyebrow="联系我"
+      title="联系我"
+      description="联系方式区块占位。后续接入联系渠道、结尾行动入口与页脚信息。"
     >
       <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">
         <div className="flex flex-col gap-4">
           <V2Placeholder label="结尾文案" note="后续：合作意向说明" />
-          <V2Placeholder label="主 CTA" note="后续：发送邮件 / 下载简历" />
+          <V2Placeholder label="主要行动入口" note="后续：发送邮件 / 下载简历" />
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2">

@@ -2,11 +2,11 @@ import { V2Placeholder } from "@/components/v2/layout/V2Placeholder";
 import { V2Section } from "@/components/v2/layout/V2Section";
 
 const stages = [
-  { index: "01", key: "discover", label: "Discover", note: "理解业务目标与用户场景" },
-  { index: "02", key: "define", label: "Define", note: "收敛问题与设计目标" },
-  { index: "03", key: "build", label: "Build", note: "产出方案与高保真界面" },
-  { index: "04", key: "evaluate", label: "Evaluate", note: "走查、验收与可用性验证" },
-  { index: "05", key: "iterate", label: "Iterate", note: "根据反馈持续迭代" },
+  { index: "01", key: "discover", label: "发现问题", note: "理解业务目标与用户场景" },
+  { index: "02", key: "define", label: "定义目标", note: "收敛问题与设计目标" },
+  { index: "03", key: "build", label: "构建方案", note: "产出方案与高保真界面" },
+  { index: "04", key: "evaluate", label: "评估验证", note: "走查、验收与可用性验证" },
+  { index: "05", key: "iterate", label: "迭代优化", note: "根据反馈持续迭代" },
 ];
 
 /** 04 How I Work — 五个阶段的结构骨架，暂无 Sticky 效果。 */
@@ -15,8 +15,8 @@ export function HowIWorkSection() {
     <V2Section
       id="how-i-work"
       index="04"
-      eyebrow="How I Work"
-      title="How I Work"
+      eyebrow="我的工作方式"
+      title="我的工作方式"
       description="工作方法区块占位。后续在此呈现五个阶段的展开说明，可能接入滚动推进效果。"
     >
       <ol className="flex flex-col gap-4">

@@ -138,7 +138,12 @@ function ModuleStage() {
 }
 
 const stages = [GridStage, DocumentStage, InterfaceStage, ModuleStage];
-const captions = ["Grid", "Document", "Interface", "Modules"];
+const captions = [
+  "网格视觉占位",
+  "文档视觉占位",
+  "产品视觉占位",
+  "工作台视觉占位",
+];
 
 type WorkVisualProps = {
   /** 当前选中项目的下标，决定使用哪一套结构 */
@@ -170,7 +175,7 @@ export function WorkVisual({ index }: WorkVisualProps) {
 
       {/* 结构类型标注 */}
       <p className="pointer-events-none absolute bottom-5 left-0 font-mono text-[10px] uppercase tracking-[0.28em] text-neutral-700">
-        {captions[slot]} — placeholder
+        {captions[slot]}
       </p>
     </div>
   );

@@ -16,8 +16,8 @@ export function WhatIDoSection() {
     <V2Section
       id="what-i-do"
       index="03"
-      eyebrow="What I Do"
-      title="What I Do"
+      eyebrow="我做什么"
+      title="我做什么"
       description="能力范围区块占位。后续在此说明设计职能边界、协作方式与工具链。"
     >
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

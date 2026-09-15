@@ -63,7 +63,7 @@ export function HeroVisual() {
 
       {/* 7. 占位标注 */}
       <p className="pointer-events-none absolute bottom-6 left-0 font-mono text-[10px] uppercase tracking-[0.28em] text-neutral-600">
-        Hero visual — placeholder
+        主视觉占位
       </p>
     </div>
   );

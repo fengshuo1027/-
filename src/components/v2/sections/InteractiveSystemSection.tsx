@@ -12,8 +12,8 @@ export function InteractiveSystemSection() {
     <V2Section
       id="system"
       index="05"
-      eyebrow="Interactive System"
-      title="Interactive System"
+      eyebrow="能力系统"
+      title="能力系统"
       description="交互系统区块占位。后续重点建设：五个入口 + 中央展示区的联动装置。"
     >
       <SystemSwitcher />

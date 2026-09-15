@@ -1,14 +1,77 @@
-import { V2Placeholder } from "@/components/v2/layout/V2Placeholder";
+import { SelectedWorkSwitcher } from "@/components/v2/interactive/SelectedWorkSwitcher";
 import { V2Section } from "@/components/v2/layout/V2Section";
-import { projects } from "@/data/projects";
+
+export type WorkItem = {
+  /** 项目编号，同时用于锚点 id，例如 "01" */
+  id: string;
+  title: string;
+  /** 头部次级 metadata：项目类型，例如 "AI / Evaluation System" */
+  type: string;
+  year: string;
+  /** 信息区左栏：一句简短介绍 */
+  description: string;
+  /** 信息区右栏：我的角色 */
+  role: string;
+  /** 信息区右栏：项目性质，与头部的 type 不是同一个字段 */
+  category: string;
+};
 
 /**
- * 02 Selected Work — 三段式结构，为后续复杂切换交互预留位置。
+ * 四个项目的占位数据。
  *
- * 当前为静态骨架：
- * - 项目导航区域：列出全部项目，暂不可切换
- * - 主视觉区域：占位
- * - 项目信息区域：占位
+ * 内容全部为临时占位，等真实项目整理完成后会整体替换
+ * （届时更适合迁到 src/data/ 下）。
+ */
+const workItems: WorkItem[] = [
+  {
+    id: "01",
+    title: "AI Image Evaluation",
+    type: "AI / Evaluation System",
+    year: "2026",
+    description:
+      "A system for evaluating AI-generated images against quality and consistency criteria.",
+    role: "Product / Design / Build",
+    category: "Work Project",
+  },
+  {
+    id: "02",
+    title: "AI Office Evaluation",
+    type: "AI / Document Evaluation",
+    year: "2026",
+    description:
+      "Evaluating AI output on office documents, from structure through to content fidelity.",
+    role: "Product / Design / Build",
+    category: "Work Project",
+  },
+  {
+    id: "03",
+    title: "ClipNote AI",
+    type: "AI Product / Design / Build",
+    year: "2026",
+    description:
+      "An AI-assisted clipping and note-taking product for collecting and reusing ideas.",
+    role: "Product / Design / Build",
+    category: "Product",
+  },
+  {
+    id: "04",
+    title: "Personal Workbench",
+    type: "Product / AI-assisted Build",
+    year: "2026",
+    description:
+      "A personal workspace for organizing tools, workflows and everyday systems.",
+    role: "Product / Design / Build",
+    category: "Personal Project",
+  },
+];
+
+/**
+ * 02 Selected Work。
+ *
+ * 本组件保持为 Server Component：它只负责区块外壳与内容数据，
+ * 交互状态下沉到 interactive/SelectedWorkSwitcher.tsx（客户端组件）。
+ *
+ * 结构：项目索引（左约 25%）→ 当前项目主视觉（右约 75%）→ 项目信息区。
  */
 export function SelectedWorkSection() {
   return (
@@ -17,50 +80,9 @@ export function SelectedWorkSection() {
       index="02"
       eyebrow="Selected Work"
       title="Selected Work"
-      description="项目展示区块占位。后续在此实现项目切换交互：导航选中 → 主视觉替换 → 信息区同步更新。"
+      description="四个项目的占位数据，点击索引即可切换主视觉与项目信息。后续替换为真实项目内容与最终视觉。"
     >
-      <div className="grid gap-6 lg:grid-cols-[260px_1fr]">
-        {/* 项目导航区域 */}
-        <nav aria-label="项目导航" className="flex flex-col gap-2">
-          <p className="text-xs font-medium uppercase tracking-widest text-neutral-500">
-            项目导航
-          </p>
-          <ul className="flex flex-col gap-2">
-            {projects.map((project) => (
-              <li key={project.slug}>
-                <button
-                  type="button"
-                  disabled
-                  title="切换交互待实现"
-                  className="w-full cursor-not-allowed rounded-lg border border-neutral-800 bg-neutral-900/40 px-4 py-3 text-left"
-                >
-                  <span className="block text-sm font-medium text-neutral-200">
-                    {project.title}
-                  </span>
-                  <span className="mt-1 block text-xs text-neutral-500">
-                    {project.subtitle}
-                  </span>
-                </button>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        {/* 主视觉区域 + 项目信息区域 */}
-        <div className="flex flex-col gap-6">
-          <V2Placeholder
-            label="主视觉区域"
-            note="后续：当前选中项目的主图 / 关键界面"
-            className="min-h-72"
-          />
-
-          <div className="grid gap-4 sm:grid-cols-3">
-            <V2Placeholder label="项目信息区域" note="后续：背景与目标" />
-            <V2Placeholder label="项目信息区域" note="后续：我的角色与产出" />
-            <V2Placeholder label="项目信息区域" note="后续：结果与沉淀" />
-          </div>
-        </div>
-      </div>
+      <SelectedWorkSwitcher items={workItems} />
     </V2Section>
   );
 }

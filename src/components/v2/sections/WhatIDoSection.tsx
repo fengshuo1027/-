@@ -1,16 +1,40 @@
-import { V2Placeholder } from "@/components/v2/layout/V2Placeholder";
+import { CapabilityArc } from "@/components/v2/interactive/CapabilityArc";
 import { V2Section } from "@/components/v2/layout/V2Section";
 
 const capabilities = [
-  { key: "product", label: "产品体验设计" },
-  { key: "interface", label: "界面与视觉设计" },
-  { key: "system", label: "设计系统与规范" },
-  { key: "ai", label: "AI 辅助设计流程" },
-  { key: "qa", label: "走查与验收" },
-  { key: "operation", label: "运营视觉设计" },
+  {
+    number: "01",
+    title: "产品体验设计",
+    description: "梳理场景、路径与关键体验。",
+  },
+  {
+    number: "02",
+    title: "界面与视觉设计",
+    description: "建立清晰、克制的视觉表达。",
+  },
+  {
+    number: "03",
+    title: "设计系统与规范",
+    description: "统一组件、状态与协作标准。",
+  },
+  {
+    number: "04",
+    title: "AI 辅助设计流程",
+    description: "让 AI 进入研究、设计与验证。",
+  },
+  {
+    number: "05",
+    title: "走查与验收",
+    description: "核对体验细节与多端一致性。",
+  },
+  {
+    number: "06",
+    title: "运营视觉设计",
+    description: "平衡品牌表达与业务目标。",
+  },
 ];
 
-/** 03 What I Do — 能力范围与工具栈，内容待最终确定。 */
+/** 03 What I Do — 滚动驱动的能力圆弧。 */
 export function WhatIDoSection() {
   return (
     <V2Section
@@ -18,20 +42,9 @@ export function WhatIDoSection() {
       index="03"
       eyebrow="我做什么"
       title="我做什么"
-      description="能力范围区块占位。后续在此说明设计职能边界、协作方式与工具链。"
+      description="从体验策略到设计落地的六项核心能力。"
     >
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {capabilities.map((item) => (
-          <V2Placeholder key={item.key} label={item.label} note="能力说明待补充" />
-        ))}
-      </div>
-
-      <div className="mt-6">
-        <V2Placeholder
-          label="工具与方法槽位"
-          note="后续：Figma / AIGC / 设计流程等标签区"
-        />
-      </div>
+      <CapabilityArc items={capabilities} />
     </V2Section>
   );
 }
